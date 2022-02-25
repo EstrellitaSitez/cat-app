@@ -1,7 +1,8 @@
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import Home from './Home';
-import BreedContainer from './BreedContainer'
+import BreedContainer from './BreedContainer';
+import NotFound from './NotFound';
 
 function App() {
   
@@ -12,8 +13,9 @@ function App() {
   
       {/* <h1 className="App-header">CatZzz </h1> */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/breed/:breed" element={<BreedContainer />} />
+        <Route path='*' element={<NotFound />} />
+        <Route exact={true} path="/breed/:breed" element={<BreedContainer />} />
+        <Route exact={true} path="/" element={<Home />} />
       </Routes>
 
     </div>
