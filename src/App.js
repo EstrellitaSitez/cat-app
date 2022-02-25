@@ -12,12 +12,10 @@ function App() {
        <Link style={{textDecoration:'none'}} to='/'><h1 className="App-header">CATz </h1></Link>
   
       {/* <h1 className="App-header">CatZzz </h1> */}
-      <Routes>
-        <Route exact={true} path="/" element={<Home />} />
+      <Routes  basename={process.env.PUBLIC_URL}>
         <Route exact={true} path="/breed/:breed" element={<BreedContainer />} />
+        <Route exact={true} path="/" element={<Home />} />
         <Route path='*' element={<NotFound />} />
- 
-        
       </Routes>
 
     </div>

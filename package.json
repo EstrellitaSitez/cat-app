@@ -42,8 +42,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://EstrellitaSitez.github.io/cat-app/",
   "devDependencies": {
     "gh-pages": "^3.2.3"
-  }
+  },
+  "homepage": "https://estrellitasitez.github.io/cat-app/"
 }
