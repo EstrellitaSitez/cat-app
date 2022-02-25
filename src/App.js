@@ -5,7 +5,7 @@ import BreedContainer from './BreedContainer';
 import NotFound from './NotFound';
 
 function App() {
-  
+  console.log(process.env.PUBLIC_URL)
   return (
     <div className="App">
       
