@@ -8,12 +8,12 @@ function App() {
   return (
     <div className="App">
       
-       <Link style={{textDecoration:'none'}} to='/cat-app/'><h1 className="App-header">CATz </h1></Link>
+       <Link style={{textDecoration:'none'}} to='/'><h1 className="App-header">CATz </h1></Link>
   
       {/* <h1 className="App-header">CatZzz </h1> */}
       <Routes>
-        <Route path="/cat-app/" element={<Home />} />
-        <Route path="cat-app/breed/:breed" element={<BreedContainer />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/breed/:breed" element={<BreedContainer />} />
       </Routes>
 
     </div>

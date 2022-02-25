@@ -9,7 +9,7 @@ import {LinkedinShareButton, LinkedinIcon, WhatsappShareButton, WhatsappIcon} fr
 
 
 export default function BreedCard(props){
-    let baseUrl = 'https://estrellitasitez.github.io/cat-app/breed/'
+    let currentURL = window.location.href
     let breed = props.breed
     console.log(breed)
     return(
@@ -36,11 +36,11 @@ export default function BreedCard(props){
                   Share
               </h5>
               <span >
-             <LinkedinShareButton url = {baseUrl+(breed.name)} style={{marginRight:'1%'}}>
+             <LinkedinShareButton url = {currentURL} style={{marginRight:'1%'}}>
               <LinkedinIcon size={32}/>
               </LinkedinShareButton>
   
-              <WhatsappShareButton url = {baseUrl+(breed.name)} title={`Hey check out this cat. It's breed is ${breed.name}`} >
+              <WhatsappShareButton url = {currentURL} title={`Hey check out this cat. It's breed is ${breed.name}`} >
                   <WhatsappIcon size={32}/>
               </WhatsappShareButton>
               </span>
