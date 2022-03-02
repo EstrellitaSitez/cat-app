@@ -11,7 +11,9 @@ import {LinkedinShareButton, LinkedinIcon, WhatsappShareButton, WhatsappIcon} fr
 export default function BreedCard(props){
     let currentURL = window.location.href
     let breed = props.breed
-    console.log(breed)
+
+    console.log("PROPSS", breed)
+    
     return(
      <>
        {breed != null?
@@ -19,7 +21,7 @@ export default function BreedCard(props){
         <CardMedia
           component="img"
           height="300"
-          image={breed.image.url}
+          image={props.image}
           alt={breed.name}
         />
         <CardContent>

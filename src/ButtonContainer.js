@@ -32,7 +32,7 @@ export default function ButtonContainer(){
     const handleClick = () => {
         let num = Math.floor(Math.random()*(breeds.length))
         let randomBreed = breeds[num]
-        navigate(`/breed/${randomBreed.name}`, { state: randomBreed });
+        navigate(`/breed/${randomBreed.name}`);
     }
 
     return(
