@@ -40,7 +40,12 @@ export default function BreedCard(props){
                   Share
               </h5>
               <span >
-             <LinkedinShareButton url = {currentURL+suffix} style={{marginRight:'1%'}}>
+             <LinkedinShareButton 
+             url = {currentURL+suffix} 
+             title = {breed.name}
+             summary = {breed.description.slice(0,25)}
+             source='CATz'
+             style={{marginRight:'1%'}}>
               <LinkedinIcon size={32}/>
               </LinkedinShareButton>
   
