@@ -7,7 +7,7 @@ import APIKEY from "./APIKey";
 export default function BreedContainer() {
     const [currentBreed, setCurrentBreed] = useState(null)
     const [isLoading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(false)
     const [image, setImage] = useState(null)
 
     const params = useParams()
@@ -20,8 +20,14 @@ export default function BreedContainer() {
         if (currentBreed == null){
             fetch('https://api.thecatapi.com/v1/breeds/search?q='+breed, {header})
             .then(resp => resp.json())
-            .then(data => setCurrentBreed(data[0]))
-            .catch(err => setError(err))
+            .then(data => {
+                if (data.length == 0){
+                    setError(true)
+                } else {
+                    setCurrentBreed(data[0])
+                }
+            })
+            
         }
 
         if (currentBreed != null){
@@ -29,16 +35,16 @@ export default function BreedContainer() {
             fetch(' https://api.thecatapi.com/v1/images/'+imageId, {header})
             .then(resp => resp.json())
             .then(data => setImage(data.url))
-            .then(err => setError(err))
+           
         }
 
-        if (((currentBreed != null)&&(image !=null)) || (error != null)){
+        if (((currentBreed != null)&&(image !=null)) || (error == true)){
             setLoading(false)
         }
     }, [isLoading, error, currentBreed, image])
 
 
-    console.log("CURRENT BREED", currentBreed)
+    console.log("Errorrrrr", error)
     return(
         <div style= {{display:'flex', justifyContent:'center'}}>
             {   
@@ -47,11 +53,11 @@ export default function BreedContainer() {
                 :
                 <>
                     {
-                        error == null?
+                        error == false?
                         <BreedCard breed = {currentBreed} image={image}/>
                         :
                         <div>
-                            Looks like there's been an error fetching this breed. Please check your internet connection and try again
+                            Looks like there's been an error fetching this breed. 
                         </div>
                     }
                 </>
