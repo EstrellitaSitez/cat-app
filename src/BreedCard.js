@@ -9,8 +9,10 @@ import {LinkedinShareButton, LinkedinIcon, WhatsappShareButton, WhatsappIcon} fr
 
 
 export default function BreedCard(props){
-    let currentURL = window.location.href
     let breed = props.breed
+    let currentURL = window.location.href
+    let suffix = '/#/breed/'+ breed.name
+  
 
     console.log("PROPSS", breed)
     
@@ -38,11 +40,11 @@ export default function BreedCard(props){
                   Share
               </h5>
               <span >
-             <LinkedinShareButton url = {currentURL} style={{marginRight:'1%'}}>
+             <LinkedinShareButton url = {currentURL+suffix} style={{marginRight:'1%'}}>
               <LinkedinIcon size={32}/>
               </LinkedinShareButton>
   
-              <WhatsappShareButton url = {currentURL} title={`Hey check out this cat. It's breed is ${breed.name}`} >
+              <WhatsappShareButton url = {currentURL+suffix} title={`Hey check out this cat. It's breed is ${breed.name}`} >
                   <WhatsappIcon size={32}/>
               </WhatsappShareButton>
               </span>
